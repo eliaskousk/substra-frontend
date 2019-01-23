@@ -3,8 +3,8 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import {css} from 'emotion';
-import {flatten, isEmpty} from 'lodash';
+import {css} from '@emotion/core';
+import {flatten, isEmpty, noop} from 'lodash';
 import uuidv4 from 'uuid/v4';
 import copy from 'copy-to-clipboard';
 
@@ -269,10 +269,10 @@ class Base extends Component {
                 ref={this.contentRef}
                 onMouseMove={this.move}
                 onMouseUp={this.mouseUp}
-                className={this.layout()}
+                css={this.layout()}
             >
                 <List
-                    className={this.list()}
+                    cssClass={this.list()}
                     model={model}
                     actions={actions}
                     filterUp={this.filterUp}
@@ -284,10 +284,10 @@ class Base extends Component {
                 <Fragment>
                     <div
                         onMouseDown={this.mouseDown}
-                        className={verticalBar}
+                        css={verticalBar}
                     />
                     <Detail
-                        className={this.detail()}
+                        cssClass={this.detail()}
                         model={model}
                         actions={actions}
                         filterUp={this.filterUp}
@@ -304,10 +304,10 @@ class Base extends Component {
                     autoHideDuration={2000}
                 >
                     <SnackbarContent
-                        className={snackbarContent}
+                        css={snackbarContent}
                         message={(
                             <div>
-                                <Check color={darkSkyBlue} className={middle} />
+                                <Check color={darkSkyBlue} css={middle} />
                                 <ClipboardContent className={middle}>
                                     <input disabled value={inputValue} />
                                     <p>
@@ -324,8 +324,6 @@ class Base extends Component {
     }
 }
 
-const noop = () => {
-};
 
 Base.defaultProps = {
     selected: null,

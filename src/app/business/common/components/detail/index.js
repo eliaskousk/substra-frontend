@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {css} from 'emotion';
+import {css} from '@emotion/core';
 import {PulseLoader} from 'react-spinners';
 
 import Title from './components/title';
@@ -9,6 +9,10 @@ import PanelTop from '../panelTop';
 import Metadata from './components/metadata';
 import Actions from './components/actions';
 import Description from './components/description';
+
+const panelTop = css`
+    justify-content: space-between;
+`;
 
 class Detail extends React.Component {
     downloadFile = (e) => {
@@ -36,13 +40,13 @@ class Detail extends React.Component {
 
     render() {
         const {
-            item, className, descLoading, model, Title, children, BrowseRelatedLinks,
+            item, cssClass, descLoading, model, Title, children, BrowseRelatedLinks,
             Metadata, Description, Actions,
         } = this.props;
 
         return (
-            <div className={className}>
-                <PanelTop className={css`justify-content: space-between;`}>
+            <div css={cssClass}>
+                <PanelTop css={panelTop}>
                     <Title item={item} />
                     <Actions
                         downloadFile={this.downloadFile}
@@ -60,7 +64,7 @@ class Detail extends React.Component {
                                 model={model}
                             />
                         </Section>
-                        {BrowseRelatedLinks && <BrowseRelatedLinks item={item} className={section} />}
+                        {BrowseRelatedLinks && <BrowseRelatedLinks item={item} css={section} />}
                         {Description && (
                             <Section>
                                 {descLoading && <PulseLoader size={6} />}
@@ -81,7 +85,7 @@ const dummy = () => null;
 
 Detail.defaultProps = {
     item: null,
-    className: '',
+    cssClass: '',
     descLoading: false,
     filterUp: noop,
     downloadFile: noop,
@@ -108,7 +112,7 @@ Detail.propTypes = {
         ]),
     }),
     descLoading: PropTypes.bool,
-    className: PropTypes.string,
+    cssClass: PropTypes.shape(),
     downloadFile: PropTypes.func,
     filterUp: PropTypes.func,
     addNotification: PropTypes.func,

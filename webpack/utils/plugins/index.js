@@ -125,7 +125,7 @@ export default env => [
                     '@babel/plugin-proposal-json-strings',
                     ...(PRODUCTION && env === 'client' ? [
                         '@babel/plugin-transform-react-constant-elements',
-                        '@babel/plugin-transform-react-inline-elements',
+                        // '@babel/plugin-transform-react-inline-elements', // bug with emotion right now
                         'transform-react-remove-prop-types',
                     ] : []),
                     ...(DEVELOPMENT ? ['react-hot-loader/babel'] : []),

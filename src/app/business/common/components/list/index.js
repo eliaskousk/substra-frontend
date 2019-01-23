@@ -168,14 +168,14 @@ class List extends React.Component {
 
     render() {
         const {
-            results, init, loading, model, className, download,
+            results, init, loading, model, cssClass, download,
             Title, Popover, Metadata, Sort, order, setOrder, PopoverItems,
         } = this.props;
 
         const {open, anchorEl, item} = this.state.popover;
 
         return (
-            <div className={className}>
+            <div css={cssClass}>
                 <PanelTop>
                     <Sort order={order} setOrder={setOrder} />
                 </PanelTop>
@@ -247,7 +247,7 @@ List.defaultProps = {
     results: [],
     selected: '',
     order,
-    className: '',
+    cssClass: '',
     model: '',
     download: {},
     setSelected: noop,
@@ -273,7 +273,7 @@ List.propTypes = {
     results: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({}))),
     selected: PropTypes.string,
     order: PropTypes.shape({}),
-    className: PropTypes.string,
+    cssClass: PropTypes.shape(),
     model: PropTypes.string,
     download: PropTypes.shape({
         address: PropTypes.arrayOf(PropTypes.string),

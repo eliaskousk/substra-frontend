@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Algo = ({
-                  className, width, height, color, ...props
+                  width, height, color, ...props
               }) => (
                   <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={width}
                       height={height}
                       viewBox="0 0 50 25"
-                      className={className}
                       {...props}
                   >
                       <g fill="none" fillRule="evenodd">
@@ -34,14 +33,12 @@ const Algo = ({
 );
 
 Algo.defaultProps = {
-    className: '',
     width: 45,
     height: 25,
     color: '#000',
 };
 
 Algo.propTypes = {
-    className: PropTypes.string,
     width: PropTypes.number,
     height: PropTypes.number,
     color: PropTypes.string,

@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Folder = ({
-                    className, width, height, color, ...props
+                    width, height, color, ...props
                 }) => (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={width}
                         height={height}
                         viewBox="0 0 24 24"
-                        className={className}
                         {...props}
                     >
                         <g
@@ -23,14 +22,12 @@ const Folder = ({
     );
 
 Folder.defaultProps = {
-    className: '',
     width: 24,
     height: 24,
     color: '#4B6073',
 };
 
 Folder.propTypes = {
-    className: PropTypes.string,
     width: PropTypes.number,
     height: PropTypes.number,
     color: PropTypes.string,

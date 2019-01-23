@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {css} from 'emotion';
+import {css} from '@emotion/core';
 import styled from '@emotion/styled';
 import {omit} from 'lodash';
 import Link from 'redux-first-router-link';
@@ -97,9 +97,9 @@ class Nav extends React.Component {
                                     to={{type: route, meta: {query: omit(location.query, ['_sw-precache'])}}}
                                     onMouseEnter={this.onMouseEnter(route)}
                                     onMouseLeave={this.onMouseLeave(route)}
-                                    className={link(active, hovered)}
+                                    css={link(active, hovered)}
                                 >
-                                    <Picto className={picto} color={color} />
+                                    <Picto css={picto} color={color} />
                                     {menu}
                                 </Link>
                             </Li>

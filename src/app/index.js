@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import styled from '@emotion/styled';
+
 import ServiceWorker from './business/common/components/serviceWorker';
 import Top from './business/top/redux';
 import Nav from './business/nav/redux';
@@ -14,7 +15,6 @@ const Container = styled('div')`
     display: flex;
     flex-direction: column;
 `;
-
 
 const Routes = ({page}) => (
     <Container>
