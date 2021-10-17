@@ -21,7 +21,7 @@ deploy:
           api:
             url: http://substra-backend.node-1.com
           service:
-            type: LoadBalancer
+            type: ClusterIP
             port: 80
           ingress:
             enabled: true
@@ -41,7 +41,7 @@ deploy:
           api:
             url: http://substra-backend.node-2.com
           service:
-            type: LoadBalancer
+            type: ClusterIP
             port: 80
           ingress:
             enabled: true
@@ -61,7 +61,7 @@ deploy:
           api:
             url: http://substra-backend.node-3.com
           service:
-            type: LoadBalancer
+            type: ClusterIP
             port: 80
           ingress:
             enabled: true
@@ -81,7 +81,7 @@ deploy:
           api:
             url: http://substra-backend.node-4.com
           service:
-            type: LoadBalancer
+            type: ClusterIP
             port: 80
           ingress:
             enabled: true
